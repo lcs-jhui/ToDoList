@@ -10,7 +10,11 @@
 		B99DD1E229DC58F700A56C52 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99DD1E129DC58F700A56C52 /* ToDoListApp.swift */; };
 		B99DD1E629DC58F900A56C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99DD1E529DC58F900A56C52 /* Assets.xcassets */; };
 		B99DD1E929DC58F900A56C52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99DD1E829DC58F900A56C52 /* Preview Assets.xcassets */; };
-		B99DD1F129DC593800A56C52 /* ListVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99DD1F029DC593800A56C52 /* ListVIew.swift */; };
+		B99DD1F129DC593800A56C52 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99DD1F029DC593800A56C52 /* ListView.swift */; };
+		B99DD1F429DC5BEB00A56C52 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99DD1F329DC5BEB00A56C52 /* TodoItem.swift */; };
+		B99DD1F929DC63C200A56C52 /* Blackbird in Frameworks */ = {isa = PBXBuildFile; productRef = B99DD1F829DC63C200A56C52 /* Blackbird */; };
+		B99DD1FC29DC644400A56C52 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99DD1FB29DC644400A56C52 /* AppDatabase.swift */; };
+		B99DD1FE29DC6DF400A56C52 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B99DD1FD29DC6DF400A56C52 /* db.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,7 +22,10 @@
 		B99DD1E129DC58F700A56C52 /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		B99DD1E529DC58F900A56C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B99DD1E829DC58F900A56C52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B99DD1F029DC593800A56C52 /* ListVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVIew.swift; sourceTree = "<group>"; };
+		B99DD1F029DC593800A56C52 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		B99DD1F329DC5BEB00A56C52 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		B99DD1FB29DC644400A56C52 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		B99DD1FD29DC6DF400A56C52 /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B99DD1F929DC63C200A56C52 /* Blackbird in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				B99DD1E129DC58F700A56C52 /* ToDoListApp.swift */,
+				B99DD1FA29DC641B00A56C52 /* Helpers */,
+				B99DD1F229DC5BBD00A56C52 /* Model */,
 				B99DD1EF29DC590900A56C52 /* VIews */,
 				B99DD1E529DC58F900A56C52 /* Assets.xcassets */,
 				B99DD1E729DC58F900A56C52 /* Preview Content */,
@@ -70,9 +80,26 @@
 		B99DD1EF29DC590900A56C52 /* VIews */ = {
 			isa = PBXGroup;
 			children = (
-				B99DD1F029DC593800A56C52 /* ListVIew.swift */,
+				B99DD1F029DC593800A56C52 /* ListView.swift */,
 			);
 			path = VIews;
+			sourceTree = "<group>";
+		};
+		B99DD1F229DC5BBD00A56C52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B99DD1F329DC5BEB00A56C52 /* TodoItem.swift */,
+				B99DD1FD29DC6DF400A56C52 /* db.sqlite */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B99DD1FA29DC641B00A56C52 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B99DD1FB29DC644400A56C52 /* AppDatabase.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +118,9 @@
 			dependencies = (
 			);
 			name = ToDoList;
+			packageProductDependencies = (
+				B99DD1F829DC63C200A56C52 /* Blackbird */,
+			);
 			productName = ToDoList;
 			productReference = B99DD1DE29DC58F700A56C52 /* ToDoList.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +149,9 @@
 				Base,
 			);
 			mainGroup = B99DD1D529DC58F700A56C52;
+			packageReferences = (
+				B99DD1F729DC63C200A56C52 /* XCRemoteSwiftPackageReference "Blackbird" */,
+			);
 			productRefGroup = B99DD1DF29DC58F700A56C52 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -134,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B99DD1E929DC58F900A56C52 /* Preview Assets.xcassets in Resources */,
+				B99DD1FE29DC6DF400A56C52 /* db.sqlite in Resources */,
 				B99DD1E629DC58F900A56C52 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,7 +179,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B99DD1F129DC593800A56C52 /* ListVIew.swift in Sources */,
+				B99DD1F129DC593800A56C52 /* ListView.swift in Sources */,
+				B99DD1F429DC5BEB00A56C52 /* TodoItem.swift in Sources */,
+				B99DD1FC29DC644400A56C52 /* AppDatabase.swift in Sources */,
 				B99DD1E229DC58F700A56C52 /* ToDoListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +383,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B99DD1F729DC63C200A56C52 /* XCRemoteSwiftPackageReference "Blackbird" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marcoarment/Blackbird";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B99DD1F829DC63C200A56C52 /* Blackbird */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B99DD1F729DC63C200A56C52 /* XCRemoteSwiftPackageReference "Blackbird" */;
+			productName = Blackbird;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B99DD1D629DC58F700A56C52 /* Project object */;
 }

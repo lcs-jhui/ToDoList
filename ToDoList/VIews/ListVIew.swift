@@ -5,9 +5,20 @@
 //  Created by Justin Hui on 4/4/2023.
 //
 
+import Blackbird
 import SwiftUI
 
-struct ListVIew: View {
+struct ListView: View {
+    
+    //MARK: Stored Properties
+    
+    //The list of items to be completed
+    @BlackbirdLiveModels ({ db in
+        try await TodoItem.read(from: db)
+    }) var todoItems
+    
+    //The iten currently being added
+    @State var newItemDescription: String = ""
     
     //MARK: Computed Properties
     var body: some View {
@@ -18,10 +29,24 @@ struct ListVIew: View {
                 
                 HStack{
                     
-                    TextField("Enter a to-do item", text: Binding.constant(""))
+                    TextField("Enter a to-do item", text: $newItemDescription)
                     
                     Button(action: {
-                        
+//                        //Get last todo item id
+//                        let lastId = todoItems.last!.id
+//
+//                        //Create new todo item id
+//                        let newID = lastId + 1
+//
+//                        //Create the new todo item
+//                        let newTodoItem = TodoItem(id: newID, description: newItemDescription, completed: false)
+//
+//                        //Add the new to-do item to the list
+//                        todoItems.append(newTodoItem)
+//
+//                        //Clear the input field
+//                        newItemDescription = ""
+//
                     }, label: {
                         Text("ADD")
                             .font(.caption)
@@ -29,24 +54,18 @@ struct ListVIew: View {
                 }
                 .padding()
                 
-                List {
-                    HStack{
-                        Image(systemName: "circle")
-                            .foregroundColor(.blue)
-                        Text("Study for Physics test")
-                    }
+                List (todoItems.results) { currentItem in
                     
-                    HStack{
-                        Image(systemName: "circle")
-                            .foregroundColor(.blue)
-                        Text("Finish Math Homework")
-                    }
+                    Label(title: {
+                        Text(currentItem.description)
+                    }, icon: {
+                        if currentItem.completed == true {
+                            Image(systemName: "checkmark.circle")
+                        } else {
+                            Image(systemName: "circle")
+                        }
+                    })
                     
-                    HStack{
-                        Image(systemName: "circle")
-                            .foregroundColor(.blue)
-                        Text("Go to the gym")
-                    }
                 }
             }
             .navigationTitle("To Do")
@@ -54,8 +73,8 @@ struct ListVIew: View {
     }
 }
 
-struct ListVIew_Previews: PreviewProvider {
+struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListVIew()
+        ListView()
     }
 }
